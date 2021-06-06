@@ -1,17 +1,25 @@
-import { Box, Flex } from '@chakra-ui/react'
+import { Box, Center, Grid, GridItem } from '@chakra-ui/react'
 import { LoginLayout } from './types'
-import { LoginFooter } from 'components/Footer'
 
 const loginLayout: React.FC<LoginLayout> = ({ children }) => {
   return (
-    <Flex minH="100vh" direction="column" alignItems="center" justifyContent="center">
-      <Flex as="main" flex="1" alignItems="center" justifyContent="center">
-        {children}
-      </Flex>
-      <Box as="footer">
-        <LoginFooter />
-      </Box>
-    </Flex>
+    <Grid
+      templateRows='1fr'
+      templateAreas='
+        "content"
+        '
+      h='100vh'
+      w='100vw'
+      overflow='hidden'
+    >
+      <GridItem as='main' gridArea='content' overflowY='scroll'>
+        <Center h='100%'>
+          <Box maxW='1280px' w='100%' h='100%'>
+            {children}
+          </Box>
+        </Center>
+      </GridItem>
+    </Grid>
   )
 }
 
