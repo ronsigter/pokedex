@@ -24,7 +24,10 @@ export default async (
         const pokes = await Promise.all(
           results.map(async ({ url }) => {
             const { data } = await axios.get(url)
-            return data
+            return {
+              ...data,
+              imageUrl: `https://pokeres.bastionbot.org/images/pokemon/${data.id}.png`,
+            }
           })
         )
         res.status(200).json(pokes)
