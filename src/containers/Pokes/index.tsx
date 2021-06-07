@@ -1,18 +1,16 @@
-import { Box, Flex } from '@chakra-ui/react'
-import Cards from 'components/Cards'
+import { Box } from '@chakra-ui/react'
 import useGetKantoPokemon from 'hooks/useGetKantoPokemon'
+import { Poke } from 'types'
+import Loader from './Loader'
 
 const Pokes: React.FC = () => {
   const { pokes, loading } = useGetKantoPokemon()
+  const onClickPokeCard = (poke: Poke): void => console.log(poke)
 
   return (
-    <Flex wrap='wrap' p={4}>
-      {pokes.map((poke, key) => (
-        <Box key={key} m={4}>
-          <Cards.PokeCard poke={poke} />
-        </Box>
-      ))}
-    </Flex>
+    <Box p={4}>
+      <Loader items={pokes} isLoading={loading} onClickCard={onClickPokeCard} />
+    </Box>
   )
 }
 

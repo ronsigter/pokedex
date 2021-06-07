@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useState } from 'react'
 import axios from 'axios'
+import { UseGetKantoPokemon } from './type'
 
-const useGetKantoPokemon = () => {
+const useGetKantoPokemon = (): UseGetKantoPokemon => {
   const [pokes, setPokes] = useState([])
   const [loading, setLoading] = useState(false)
 
@@ -20,7 +21,7 @@ const useGetKantoPokemon = () => {
 
   useEffect(() => {
     getKantoPokes()
-  }, [])
+  }, [getKantoPokes])
 
   return { pokes, loading }
 }

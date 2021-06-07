@@ -1,3 +1,6 @@
+import { Poke } from 'types'
+
 export type PokeCardProps = {
-  poke: any
+  poke: Poke
+  isLoading: boolean
 }
