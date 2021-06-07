@@ -8,7 +8,7 @@ const Pokes: React.FC = () => {
   const onClickPokeCard = (poke: Poke): void => console.log(poke)
 
   return (
-    <Box p={4}>
+    <Box p={6}>
       <Loader items={pokes} isLoading={loading} onClickCard={onClickPokeCard} />
     </Box>
   )

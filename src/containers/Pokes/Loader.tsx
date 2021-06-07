@@ -11,10 +11,10 @@ const Loader: React.FC<LoaderProps> = ({ items, isLoading, onClickCard }) => {
           md: 3,
           lg: 5,
         }}
-        spacing='1.5rem'
+        spacing={4}
       >
         {Array.from(Array(20)).map((poke, key) => (
-          <Box key={key} data-testid='loading-poke-card'>
+          <Box key={key} data-testid='loading-poke-card' height='8rem'>
             <Cards.PokeCard poke={poke} isLoading={true} />
           </Box>
         ))}
@@ -28,10 +28,11 @@ const Loader: React.FC<LoaderProps> = ({ items, isLoading, onClickCard }) => {
           md: 3,
           lg: 5,
         }}
-        spacing={8}
+        spacing={4}
       >
         {items.map((poke, key) => (
           <Box
+            height='8rem'
             key={`${key}-${poke.name}`}
             data-testid='loaded-poke-card'
             onClick={() => onClickCard(poke)}
