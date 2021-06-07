@@ -5,3 +5,8 @@ export type LoaderProps = {
   isLoading: boolean
   onClickCard: (poke: Poke) => void
 }
+
+export type DrawerProps = {
+  isOpen: boolean
+  onClose: () => void
+}
