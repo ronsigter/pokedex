@@ -1,4 +1,4 @@
-import { Box, useDisclosure } from '@chakra-ui/react'
+import { Box, Text, useDisclosure } from '@chakra-ui/react'
 import useGetKantoPokemon from 'hooks/useGetKantoPokemon'
 import { Poke } from 'types'
 import Drawer from './Drawer'
@@ -15,6 +15,7 @@ const Pokes: React.FC = () => {
 
   return (
     <Box p={6}>
+      <Text>POKEDEX</Text>
       <Loader items={pokes} isLoading={loading} onClickCard={onClickPokeCard} />
       <Drawer isOpen={isOpen} onClose={onClose} />
     </Box>
