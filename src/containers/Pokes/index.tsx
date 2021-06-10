@@ -7,11 +7,12 @@ import Loader from './Loader'
 
 const Pokes: React.FC = () => {
   const [offset, setOffset] = useState(1)
+  const [pokeView, setPokeView] = useState(null)
   const { getPokes, pokes, loading } = useGetKantoPokemon()
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const onClickPokeCard = (poke: Poke): void => {
-    console.log(poke)
+    setPokeView(poke)
     onOpen()
   }
 
@@ -37,7 +38,7 @@ const Pokes: React.FC = () => {
           </Center>
         )}
       </Box>
-      <Drawer isOpen={isOpen} onClose={onClose} />
+      <Drawer item={pokeView} isOpen={isOpen} onClose={onClose} />
     </Box>
   )
 }

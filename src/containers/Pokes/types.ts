@@ -9,4 +9,5 @@ export type LoaderProps = {
 export type DrawerProps = {
   isOpen: boolean
   onClose: () => void
+  item: Poke
 }
