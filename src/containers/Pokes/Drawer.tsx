@@ -33,15 +33,15 @@ const Drawer: React.FC<DrawerProps> = ({ isOpen, onClose, item }) => {
     >
       <DrawerOverlay />
       <DrawerContent>
-        <DrawerCloseButton zIndex='overlay' />
+        <DrawerCloseButton zIndex='overlay' top={24} right={8} />
         <DrawerBody p='0'>
           <Container maxW='container.sm' h='100%' p='0'>
-            <Grid h='100%' templateRows='repeat(2, 1fr)'>
+            <Grid h='100%' templateRows='60vh 40vh'>
               <GridItem
                 rowSpan={1}
                 bgColor={color}
                 px={8}
-                pt={8}
+                pt={20}
                 pos='relative'
                 overflow='hidden'
               >
