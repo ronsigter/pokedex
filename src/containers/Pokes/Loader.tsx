@@ -1,4 +1,4 @@
-import { Box, SimpleGrid } from '@chakra-ui/react'
+import { Box, SimpleGrid, Skeleton } from '@chakra-ui/react'
 import Cards from 'components/Cards'
 import { LoaderProps } from './types'
 
@@ -14,9 +14,11 @@ const Loader: React.FC<LoaderProps> = ({ items, isLoading, onClickCard }) => {
         spacing={4}
       >
         {Array.from(Array(20)).map((poke, key) => (
-          <Box key={key} data-testid='loading-poke-card' height='8rem'>
-            <Cards.PokeCard poke={poke} isLoading={true} />
-          </Box>
+          <Skeleton key={key} isLoaded={!isLoading}>
+            <Box data-testid='loading-poke-card' height='8rem'>
+              <Cards.PokeCard poke={poke} isLoading={true} />
+            </Box>
+          </Skeleton>
         ))}
       </SimpleGrid>
     )

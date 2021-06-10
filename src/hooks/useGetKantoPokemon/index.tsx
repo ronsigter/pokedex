@@ -7,7 +7,7 @@ const useGetKantoPokemon = (): UseGetKantoPokemon => {
   const [loading, setLoading] = useState(false)
 
   const getKantoPokes = useCallback(() => {
-    setLoading(false)
+    setLoading(true)
     axios
       .get('/api/getKantoPokes')
       .then((results) => {
@@ -15,6 +15,7 @@ const useGetKantoPokemon = (): UseGetKantoPokemon => {
         setPokes(results.data)
       })
       .catch((error) => {
+        setLoading(false)
         console.log(error)
       })
   }, [])

@@ -2,7 +2,7 @@ import { Box, Flex, Image, Text, Stack } from '@chakra-ui/react'
 import { typeColor } from 'utils/typeColor'
 import { PokeCardProps } from './types'
 
-const PokeCard: React.FC<PokeCardProps> = ({ poke }) => {
+const PokeCard: React.FC<PokeCardProps> = ({ poke, isLoading }) => {
   const color = typeColor(poke?.types?.[0].type.name || null)
 
   return (
@@ -64,9 +64,11 @@ const PokeCard: React.FC<PokeCardProps> = ({ poke }) => {
           transform='rotate(-10deg)'
         />
       </Box>
-      <Box position='absolute' bottom='0.5rem' right='0.5rem'>
-        <Image src={poke.imageUrl} boxSize='4rem' />
-      </Box>
+      {!isLoading && (
+        <Box position='absolute' bottom='0.5rem' right='0.5rem'>
+          <Image src={poke?.imageUrl} boxSize='4rem' />
+        </Box>
+      )}
     </Flex>
   )
 }
