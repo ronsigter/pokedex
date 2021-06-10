@@ -5,7 +5,7 @@ export default async (
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> => {
-  const offset = 0
+  const offset = req.query?.offset || 0
   const limit = 20
   const url = process.env.POKE_URL + '/pokemon'
 
