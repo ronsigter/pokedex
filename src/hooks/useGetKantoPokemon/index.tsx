@@ -16,8 +16,6 @@ const useGetKantoPokemon = (): UseGetKantoPokemon => {
       })
       .then((results) => {
         setLoading(false)
-        console.log('Current', pokes)
-        console.log('Next', results.data)
         setPokes([...pokes, ...results.data])
       })
       .catch((error) => {
