@@ -27,6 +27,7 @@ export default async (
             return {
               ...data,
               imageUrl: `https://pokeres.bastionbot.org/images/pokemon/${data.id}.png`,
+              gifUrl: `https://www.smogon.com/dex/media/sprites/xy/${data.name}.gif`,
             }
           })
         )

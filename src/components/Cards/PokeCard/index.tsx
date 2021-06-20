@@ -66,7 +66,11 @@ const PokeCard: React.FC<PokeCardProps> = ({ poke, isLoading }) => {
       </Box>
       {!isLoading && (
         <Box position='absolute' bottom='0.5rem' right='0.5rem'>
-          <Image src={poke?.imageUrl} boxSize='4rem' />
+          <Image
+            src={poke?.gifUrl}
+            boxSize='4rem'
+            fallbackSrc='/images/pokeball.png'
+          />
         </Box>
       )}
     </Flex>

@@ -18,6 +18,7 @@ import {
   TabPanels,
   TabPanel,
 } from '@chakra-ui/react'
+import Stats from 'containers/Stats'
 import { typeColor } from 'utils/typeColor'
 import { DrawerProps } from './types'
 
@@ -92,7 +93,11 @@ const Drawer: React.FC<DrawerProps> = ({ isOpen, onClose, item }) => {
                   left='0'
                   zIndex='overlay'
                 >
-                  <Image src={item?.imageUrl} boxSize='18rem' />
+                  <Image
+                    src={item?.imageUrl}
+                    boxSize='18rem'
+                    fallbackSrc='/images/pokeball.png'
+                  />
                 </Center>
               </GridItem>
 
@@ -119,7 +124,7 @@ const Drawer: React.FC<DrawerProps> = ({ isOpen, onClose, item }) => {
                       <p>one!</p>
                     </TabPanel>
                     <TabPanel>
-                      <p>two!</p>
+                      <Stats stats={item?.stats} />
                     </TabPanel>
                     <TabPanel>
                       <p>three!</p>

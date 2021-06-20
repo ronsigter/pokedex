@@ -20,6 +20,8 @@ const Pokes: React.FC = () => {
     getPokes(0)
   }, [])
 
+  console.log(pokeView)
+
   return (
     <Box p={6}>
       <Text>POKEDEX</Text>
