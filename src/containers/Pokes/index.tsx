@@ -23,7 +23,7 @@ const Pokes: React.FC = () => {
   console.log(pokeView)
 
   return (
-    <Box p={6}>
+    <Box p={6} pb={80}>
       <Text>POKEDEX</Text>
       <Loader items={pokes} isLoading={loading} onClickCard={onClickPokeCard} />
       <Box pt={8}>
