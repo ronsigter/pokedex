@@ -4,6 +4,7 @@ export type LoaderProps = {
   items: Poke[]
   isLoading: boolean
   onClickCard: (poke: Poke) => void
+  fetchMore: () => void
 }
 
 export type DrawerProps = {

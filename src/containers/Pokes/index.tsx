@@ -1,4 +1,4 @@
-import { Box, Button, Center, Text, useDisclosure } from '@chakra-ui/react'
+import { Box, Text, useDisclosure } from '@chakra-ui/react'
 import useGetKantoPokemon from 'hooks/useGetKantoPokemon'
 import { useEffect, useState } from 'react'
 import { Poke } from 'types'
@@ -20,26 +20,18 @@ const Pokes: React.FC = () => {
     getPokes(0)
   }, [])
 
-  console.log(pokeView)
-
   return (
     <Box p={6} pb={80}>
       <Text>POKEDEX</Text>
-      <Loader items={pokes} isLoading={loading} onClickCard={onClickPokeCard} />
-      <Box pt={8}>
-        {!loading && (
-          <Center>
-            <Button
-              onClick={() => {
-                getPokes(offset * 20)
-                setOffset(offset + 1)
-              }}
-            >
-              Load More Pokes
-            </Button>
-          </Center>
-        )}
-      </Box>
+      <Loader
+        items={pokes}
+        isLoading={loading}
+        onClickCard={onClickPokeCard}
+        fetchMore={() => {
+          getPokes(offset * 20)
+          setOffset(offset + 1)
+        }}
+      />
       <Drawer item={pokeView} isOpen={isOpen} onClose={onClose} />
     </Box>
   )
